@@ -26,22 +26,30 @@ class SportShoesStore
 public:
     SportShoesStore () {}
 
-    void Sort(float arr[], int size)
+    void Sort_array(float arr[], int size)  /*Bubblesort*/
     {
-        int temporary_index, second_temporary_index;
-        for (temporary_index = 0; temporary_index <= size-1 ; temporary_index++)
-            for (second_temporary_index = 0; second_temporary_index < size - temporary_index ; second_temporary_index++)
-                if (arr[second_temporary_index + 1] > arr[second_temporary_index])
-                    swap(arr[second_temporary_index + 1], arr[second_temporary_index]);
+        int i, j;
+        for (i = 0; i <= size-1 ; i++) 
+        {
+            for (j = 0; j < size - i ; j++) 
+            {
+                if (arr[j + 1] > arr[j])
+                    swap(arr[j + 1], arr[j]);
+            }
+        }
     }
 
-    void Sort(int aray[], int size)
+    void Sort_array(int aray[], int size)   /*Bubblesort*/
     {
-        int temporary_index, second_temporary_index;
-        for (temporary_index = 0; temporary_index < size  ; temporary_index++)
-            for (second_temporary_index = 0; second_temporary_index < size ; second_temporary_index++)
-                if (aray[second_temporary_index] < aray[temporary_index])
-                    swap(aray[second_temporary_index], aray[temporary_index ]);
+        int i, j;
+        for (i = 0; i < size  ; i++)
+        {
+            for (j = 0; j < size ; j++)
+            {
+                if (aray[j] < aray[i])
+                    swap(aray[j], aray[i ]);
+            }
+        }
     }
 };
 
@@ -75,27 +83,27 @@ ostream &operator <<(ostream& os, const Sneaker& object)
     return os;
 }
 
-float comparing(float array_prices[], vector<Sneaker> comparable_vector,int size)
+float Comparing(float array_prices[], vector<Sneaker> comparable_vector,int size)
 
     {
-        for(int temporary_index = 0; temporary_index < size; temporary_index++)
+        for(int i = 0; i < size; i++)
         {
-            for(int second_temporary_index = 0; second_temporary_index < size; second_temporary_index++)
+            for(int j = 0; j < size; j++)
             {
-                if(array_prices[temporary_index] == comparable_vector[second_temporary_index].price_on_hryvna)
-                    cout << comparable_vector[second_temporary_index];
+                if(array_prices[i] == comparable_vector[j].price_on_hryvna)
+                    cout << comparable_vector[j];
 
             }
         }
     }
-int comparing(int array_sales[], vector<Sneaker> comparable_vector,int size)
+int Comparing(int array_sales[], vector<Sneaker> comparable_vector,int size)
 {
-    for(int temporary_index = 0; temporary_index < size; temporary_index++)
+    for(int i = 0; i < size; i++)
         {
-            for(int second_temporary_index = 0; second_temporary_index < size; second_temporary_index++)
+            for(int j = 0; j < size; j++)
             {
-                if(array_sales[temporary_index] == comparable_vector[second_temporary_index].quantity_sales)
-                    cout << comparable_vector[second_temporary_index];
+                if(array_sales[i] == comparable_vector[j].quantity_sales)
+                    cout << comparable_vector[j];
 
             }
         }
